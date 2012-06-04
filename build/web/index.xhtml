@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <p:layout fullPage="false" style="height:400px;width: 500px;margin-left: 30%;margin-top: 5%">
+            <p:layoutUnit position="center" header="Welcome To FEOBET - Web Version" width="500" height="400">
+                <p:panel closable="true">
+                    <h:form>
+                        <p:messages showSummary="true" />
+                        <h:panelGrid columns="2" border="0">                        
+                            <h:outputLabel id="lblName" value="Name : " style="margin-left: 30%" />
+                            <p:inputText id="txtName" value="#{main.name}" style="width:125px" required="true" requiredMessage="Name is Required" >
+                                <p:ajax update="otxtName" event="keypress"/>
+                            </p:inputText>                             
+                            <h:outputLabel id="lblPassword" value="Password : " />
+                            <p:password id="txtPassword" feedback="true" minLength="12" style="width:125px" requiredMessage="Password is Required" required="true"/>                                                        
+                        </h:panelGrid>
+                        <h:commandButton action="#{main.showName()}" value="Submit" style="margin-left: 25%"/>
+                        <h:commandButton action="#{main.reset()}" value="Reset" />
+                        <p:message for="txtName" display="both" rendered="false" showDetail="false" showSummary="false"/>
+                        <p:message for="txtPassword" display="both" rendered="false" showDetail="false" showSummary="false"/>
+                    </h:form>     
+                    <h:outputText id="otxtName" value="#{main.name}"/>                    
+                </p:panel> 
+            </p:layoutUnit>
+        </p:layout>        
+    </h:body>
+</html>
+

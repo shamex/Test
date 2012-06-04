@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <persistence-unit name="FEOBETWebPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <non-jta-data-source>Feobet</non-jta-data-source>
+    <class>com.um.feobet.persistence.entity.Cause</class>
+    <class>com.um.feobet.persistence.entity.Disease</class>
+    <class>com.um.feobet.persistence.entity.Diseasecause</class>
+    <class>com.um.feobet.persistence.entity.Diseasesymptoms</class>
+    <class>com.um.feobet.persistence.entity.Diseasetreatment</class>
+    <class>com.um.feobet.persistence.entity.Patient</class>
+    <class>com.um.feobet.persistence.entity.Symptoms</class>
+    <class>com.um.feobet.persistence.entity.Synonym</class>
+    <class>com.um.feobet.persistence.entity.Treatment</class>
+    <class>com.um.feobet.persistence.entity.Treatmentsynonym</class>    
+    <properties>
+      <property name="hibernate.connection.username" value="root"/>
+      <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+      <property name="hibernate.connection.password" value="password"/>
+      <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/feobet"/>
+      <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
+      <property name="hibernate.hbm2ddl.auto" value="update"/>
+    </properties>
+  </persistence-unit>
+</persistence>

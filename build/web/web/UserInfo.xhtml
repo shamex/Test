@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>TODO supply a title</title>
+    </h:head>
+    <h:body>
+        <p:layout fullPage="false" style="height: 300px;width: 500px;margin-left: 30%;margin-top: 15%">
+            <p:layoutUnit position="center" header="Welcome to FEOBET - Web Version">
+                <p:panel style="border: none">
+                    <h:form >
+                        <p:messages showSummary="true"/>
+                        <h:panelGrid columns="2">
+                            <h:outputLabel id="lblAge" value="Enter your age :" style="margin-left: 50px"/>
+                            <p:inputText id="txtAge" immediate="true" required="true" requiredMessage="Age is Required" value="#{userInfo.age}" validator="#{userInfo.validateAge}" validatorMessage="#{userInfo.message}" />
+                            <p:panel>
+                                <h:panelGroup>
+                                    <h:panelGrid columns="2">
+                                        <h:selectOneRadio id="sorGenders" value="#{userInfo.genderValue}" style="margin-left: 25px" required="true" requiredMessage="Gender is Required" >
+                                            <f:selectItems value="#{userInfo.genders}"/>                                            
+                                        </h:selectOneRadio>
+                                    </h:panelGrid>
+                                </h:panelGroup>
+                            </p:panel>
+                            <p:commandButton id="btnSubmit" value="Submit" action="#{userInfo.next()}" ajax="false" style="margin-left: 55%;margin-top: 15%"/>
+                        </h:panelGrid>
+                        <p:message for="txtAge" display="both" rendered="false" showSummary="true" />
+                        <p:message for="sorGenders" display="both" rendered="false" showSummary="true" />
+                    </h:form>
+                </p:panel>
+            </p:layoutUnit>
+        </p:layout>
+    </h:body>
+</html>
